@@ -1,6 +1,7 @@
 import Head from "next/head";
 import {FC, ReactNode} from "react";
-import classes from "./Layout.module.css"
+import classes from "@/app/layouts/Layout.module.css"
+import Link from "next/link";
 
 interface LayoutProps {
     title: string;
@@ -14,10 +15,10 @@ export const Layout: FC<LayoutProps> = ({title, children}) => {
                 <title>{title}</title>
             </Head>
             <header className={classes.header}>
-                <div className={classes.title}>{title}</div>
+                <Link href={"/"} className={classes.title}>{title}</Link>
                 <div className={classes.buttons}>
-                    <button className={classes.button}>LOGIN</button>
-                    <button className={classes.button}>REGISTER</button>
+                    <Link href={"/login"} className={classes.button}>LOGIN</Link>
+                    <Link href={"/register"} className={classes.button}>REGISTER</Link>
                 </div>
             </header>
             <main className={classes.main}>
